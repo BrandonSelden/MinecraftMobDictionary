@@ -25,6 +25,7 @@ public class MobListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mob_list);
         wireWidgets();
         setListeners();
+        setMobs();
     }
     @Override
     protected void onStart(){
@@ -45,6 +46,16 @@ public class MobListActivity extends AppCompatActivity {
                 startActivity(mobIntent);
             }
         });
+    }
+
+    public void setMobs(){
+        Mob bat = new Mob(6, 0, 0, 0, "Bat", 0);
+        Mob cat = new Mob(10, 0, 0, 0, "Cat", 0);
+        Mob chicken = new Mob(4, 0, 0, 0, "Chicken", 0);
+        Mob cod = new Mob(3, 0, 0, 0, "Cod", 0);
+        Mob cow = new Mob(10, 0, 0, 0, "Cow", 0);
+        Mob donkey = new Mob(30, 0, 0, 0, "Donkey", 0);
+        Mob fox = new Mob(10, 0, 0, 0, "Fox", 0);
     }
 }
 
