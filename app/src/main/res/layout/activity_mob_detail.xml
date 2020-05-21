@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.07" />
 
     <TextView
-        android:id="@+id/textView_mobDetail_easyDamage"
+        android:id="@+id/textView_mobDetail_staticEasyDamage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Easy:"
@@ -30,7 +30,7 @@
         app:layout_constraintVertical_bias="0.37" />
 
     <TextView
-        android:id="@+id/textView_mobDetail_hardDamage"
+        android:id="@+id/textView_mobDetail_staticHardDamage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hard:"
@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="0.515" />
 
     <TextView
-        android:id="@+id/textView_mobDetail_normalDamage"
+        android:id="@+id/textView_mobDetail_staticNormalDamage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Normal:"
@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="0.442" />
 
     <TextView
-        android:id="@+id/textView_mobDetail_health"
+        android:id="@+id/textView_mobDetail_staticHealth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Health: "
@@ -66,7 +66,7 @@
         app:layout_constraintVertical_bias="0.234" />
 
     <TextView
-        android:id="@+id/textView_mobDetail_damage"
+        android:id="@+id/textView_mobDetail_staticDamage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Damage: "
@@ -78,7 +78,7 @@
         app:layout_constraintVertical_bias="0.304" />
 
     <TextView
-        android:id="@+id/textView_mobDetail_mobType"
+        android:id="@+id/textView_mobDetail_staticMobType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mob Type: "
@@ -89,5 +89,45 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.161"
         app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/textView_mobDetail_mobType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="117dp" />
+
+    <TextView
+        android:id="@+id/textView_mobDetail_mobHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <TextView
+        android:id="@+id/textView_mobDetail_easyDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <TextView
+        android:id="@+id/textView_mobDetail_normalDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="317dp" />
+
+    <TextView
+        android:id="@+id/textView_mobDetail_hardDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="174dp"
+        tools:layout_editor_absoluteY="368dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

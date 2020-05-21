@@ -10,8 +10,8 @@ public class Mob {
     private int hardDamage;
     private String name;
     private int hostility;
-    //      0 = not hostile
-    //      1 = passive
+    //      0 = passive
+    //      1 = neutral
     //      2 = hostile
     //      3 = boss
 
