@@ -23,6 +23,7 @@ public class MobListActivity extends AppCompatActivity {
     public static final String MOB = "Mob";
 
     private ListView mobsListView;
+    private String[] mobNameArray;
     private List<Mob> mobsList = new List<Mob>() {
         @Override
         public int size() {
@@ -153,6 +154,11 @@ public class MobListActivity extends AppCompatActivity {
         wireWidgets();
         setListeners();
         setMobs();
+        for(int i = 0; i <= mobsList.size(); i++){
+            mobNameArray[i] = mobsList.get(i).getName();
+        }
+        ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.activity_mob_list,R.id.textView_moblist_name,mobNameArray);
+        mobsListView.setAdapter(adapter);
     }
     @Override
     protected void onStart(){
