@@ -30,128 +30,7 @@ public class MobListActivity extends AppCompatActivity {
 
     private ListView mobsListView;
     private String[] mobNameArray;
-    private List<Mob> mobsList = new List<Mob>() {
-        @Override
-        public int size() {
-            return 0;
-        }
-
-        @Override
-        public boolean isEmpty() {
-            return false;
-        }
-
-        @Override
-        public boolean contains(@Nullable Object o) {
-            return false;
-        }
-
-        @NonNull
-        @Override
-        public Iterator<Mob> iterator() {
-            return null;
-        }
-
-        @NonNull
-        @Override
-        public Object[] toArray() {
-            return new Object[0];
-        }
-
-        @NonNull
-        @Override
-        public <T> T[] toArray(@NonNull T[] a) {
-            return null;
-        }
-
-        @Override
-        public boolean add(Mob mob) {
-            return false;
-        }
-
-        @Override
-        public boolean remove(@Nullable Object o) {
-            return false;
-        }
-
-        @Override
-        public boolean containsAll(@NonNull Collection<?> c) {
-            return false;
-        }
-
-        @Override
-        public boolean addAll(@NonNull Collection<? extends Mob> c) {
-            return false;
-        }
-
-        @Override
-        public boolean addAll(int index, @NonNull Collection<? extends Mob> c) {
-            return false;
-        }
-
-        @Override
-        public boolean removeAll(@NonNull Collection<?> c) {
-            return false;
-        }
-
-        @Override
-        public boolean retainAll(@NonNull Collection<?> c) {
-            return false;
-        }
-
-        @Override
-        public void clear() {
-
-        }
-
-        @Override
-        public Mob get(int index) {
-            return null;
-        }
-
-        @Override
-        public Mob set(int index, Mob element) {
-            return null;
-        }
-
-        @Override
-        public void add(int index, Mob element) {
-
-        }
-
-        @Override
-        public Mob remove(int index) {
-            return null;
-        }
-
-        @Override
-        public int indexOf(@Nullable Object o) {
-            return 0;
-        }
-
-        @Override
-        public int lastIndexOf(@Nullable Object o) {
-            return 0;
-        }
-
-        @NonNull
-        @Override
-        public ListIterator<Mob> listIterator() {
-            return null;
-        }
-
-        @NonNull
-        @Override
-        public ListIterator<Mob> listIterator(int index) {
-            return null;
-        }
-
-        @NonNull
-        @Override
-        public List<Mob> subList(int fromIndex, int toIndex) {
-            return null;
-        }
-    };
+    private List<Mob> mobsList = new ArrayList<Mob>();
     private MobAdapter mobAdapter;
 
     @Override
@@ -160,11 +39,10 @@ public class MobListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mob_list);
         wireWidgets();
         setMobs();
-        setListeners();
+        mobNameArray = new String[mobsList.size()];
         for(int i = 0; i < mobsList.size(); i++) {
             mobNameArray[i] = mobsList.get(i).getName();
         }
-
     }
 
     @Override
@@ -173,23 +51,22 @@ public class MobListActivity extends AppCompatActivity {
 
         mobAdapter = new MobAdapter(mobsList);
         mobsListView.setAdapter(mobAdapter);
+        mobsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Mob clickedMob = mobsList.get(i);
+                Intent mobIntent = new Intent(MobListActivity.this, MobDetailActivity.class);
+                mobIntent.putExtra(MOB, clickedMob);
+                startActivity(mobIntent);
+            }
+        });
     }
 
     public void wireWidgets(){
         mobsListView = findViewById(R.id.ListView_mobList_Mobs);
     }
 
-    public void setListeners(){
-        mobsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                Mob clickedMob = mobsList.get(i);
-                Intent mobIntent = new Intent(MobListActivity.this, MobDetailActivity.class);
-                mobIntent.putExtra(MOB, mobsList.indexOf(clickedMob));
-                startActivity(mobIntent);
-            }
-        });
-    }
+
 
     public void setMobs(){
         Mob bat = new Mob(6, 0, 0, 0, "Bat", 0);

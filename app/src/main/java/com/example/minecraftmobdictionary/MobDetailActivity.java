@@ -37,6 +37,7 @@ public class MobDetailActivity  extends AppCompatActivity {
 
         Intent lastIntent = getIntent();
         mob = lastIntent.getParcelableExtra(MobListActivity.MOB);
+
         if(mob == null){
             mob = new Mob(0, 0, 0, 0, "", 0);
         }
@@ -71,10 +72,10 @@ public class MobDetailActivity  extends AppCompatActivity {
 
     private void setDefaults(){
         staticName.setText(name);
-        mobHealth.setText(health);
-        easyDamageText.setText(easyDamage);
-        normalDamageText.setText(normalDamage);
-        hardDamageText.setText(hardDamage);
+        mobHealth.setText("" + health);
+        easyDamageText.setText("" + easyDamage);
+        normalDamageText.setText("" + normalDamage);
+        hardDamageText.setText("" + hardDamage);
         if(hostility == 0) {
             mobType.setText("Passive");
         }

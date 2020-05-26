@@ -3,7 +3,7 @@ package com.example.minecraftmobdictionary;
 import android.os.Parcelable;
 import android.os.Parcel;
 
-public class Mob {
+public class Mob implements Parcelable {
     private int health;
     private int easyDamage;
     private int normalDamage;
@@ -17,6 +17,12 @@ public class Mob {
 
     //      Constructor
     public Mob(int health, int easyDamage, int normalDamage, int hardDamage, String name, int isHostile){
+        this.health = health;
+        this.easyDamage = easyDamage;
+        this.normalDamage = normalDamage;
+        this.hardDamage = hardDamage;
+        this.name = name;
+        this.hostility = isHostile;
     }
 
     //      Getters and Setters
@@ -56,4 +62,40 @@ public class Mob {
     public void setHostility(int hostile){
         this.hostility = hostile;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.health);
+        dest.writeInt(this.easyDamage);
+        dest.writeInt(this.normalDamage);
+        dest.writeInt(this.hardDamage);
+        dest.writeString(this.name);
+        dest.writeInt(this.hostility);
+    }
+
+    protected Mob(Parcel in) {
+        this.health = in.readInt();
+        this.easyDamage = in.readInt();
+        this.normalDamage = in.readInt();
+        this.hardDamage = in.readInt();
+        this.name = in.readString();
+        this.hostility = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Mob> CREATOR = new Parcelable.Creator<Mob>() {
+        @Override
+        public Mob createFromParcel(Parcel source) {
+            return new Mob(source);
+        }
+
+        @Override
+        public Mob[] newArray(int size) {
+            return new Mob[size];
+        }
+    };
 }
